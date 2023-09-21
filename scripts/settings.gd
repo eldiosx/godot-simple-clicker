@@ -1,10 +1,10 @@
 extends Control
 
-onready var ResOptionButton = $Options/ResolutionContainer/OptionButton
-onready var FullscreenToggle = $Options/FullscreenContainer/FullScreenToggle
-onready var VsyncToggle = $Options/VsyncContainer/VSYNCHECK
-onready var FXAAToggle = $Options/FXAAContainer/FXAACheck
-onready var MSAASlider = $Options/MSAA/MSAASlider
+@onready var ResOptionButton = $Options/ResolutionContainer/OptionButton
+@onready var FullscreenToggle = $Options/FullscreenContainer/FullScreenToggle
+@onready var VsyncToggle = $Options/VsyncContainer/VSYNCHECK
+@onready var FXAAToggle = $Options/FXAAContainer/FXAACheck
+@onready var MSAASlider = $Options/MSAA/MSAASlider
 
 var Resolutions: Dictionary = {"3840x2160":Vector2(3840,2160),
 								"2560x1440":Vector2(2560,1440),
@@ -19,8 +19,8 @@ var Resolutions: Dictionary = {"3840x2160":Vector2(3840,2160),
 
 func _ready():
 	AddResolutions()
-	FullscreenToggle.pressed = OS.is_window_fullscreen()
-	VsyncToggle.set_pressed_no_signal(OS.is_vsync_enabled())
+	FullscreenToggle.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
+	VsyncToggle.set_pressed_no_signal((DisplayServer.window_get_vsync_mode() != DisplayServer.VSYNC_DISABLED))
 	FXAAToggle.set_pressed_no_signal(get_viewport().get_use_fxaa())
 	MSAASlider.set_value(get_viewport().get_msaa())
 
@@ -38,15 +38,15 @@ func AddResolutions():
 
 func _on_OptionButton_item_selected(index):
 	var size = Resolutions.get(ResOptionButton.get_item_text(index))
-	OS.set_window_size(size)
+	get_window().set_size(size)
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_VIEWPORT,SceneTree.STRETCH_ASPECT_KEEP,size)
 
 func _on_FullScreenToggle_toggled(button_pressed):
-	OS.set_window_fullscreen(button_pressed)
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (button_pressed) else Window.MODE_WINDOWED
 	
 	if button_pressed == false:
 		var size = get_viewport().get_size()
-		OS.set_window_size(size)
+		get_window().set_size(size)
 		OS.center_window()
 
 func _on_FXAACheck_toggled(button_pressed):
@@ -59,9 +59,9 @@ func _on_MSAASlider_value_changed(value):
 	get_viewport().set_msaa(value)
 	
 func _on_VSYNCHECK_toggled(button_pressed):
-	OS.set_use_vsync(button_pressed)
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if (button_pressed) else DisplayServer.VSYNC_DISABLED)
 
 
 func _on_Button_pressed():
-	assert(get_tree().change_scene("res://scenes/menu.tscn") == OK)
+	assert(get_tree().change_scene_to_file("res://scenes/menu.tscn") == OK)
 	pass

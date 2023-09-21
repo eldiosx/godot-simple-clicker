@@ -25,7 +25,7 @@ func _on_Worker_pressed():
 			pass
 	else:
 		$Text.text = "No money"
-		yield(get_tree().create_timer(1.0), "timeout")
+		await get_tree().create_timer(1.0).timeout
 		$Text.text = ""
 	pass
 	
@@ -42,7 +42,7 @@ func _on_Computer_pressed():
 			pass
 	else:
 		$Text.text = "No money"
-		yield(get_tree().create_timer(1.0), "timeout")
+		await get_tree().create_timer(1.0).timeout
 		$Text.text = ""
 	pass
 
@@ -59,7 +59,7 @@ func _on_Ram_pressed():
 			pass
 	else:
 		$Text.text = "No money"
-		yield(get_tree().create_timer(1.0), "timeout")
+		await get_tree().create_timer(1.0).timeout
 		$Text.text = ""
 	pass
 
@@ -80,5 +80,5 @@ func _process(_delta):
 	pass
 
 func _on_Menu_pressed():
-	assert(get_tree().change_scene("res://scenes/menu.tscn") == OK)
+	assert(get_tree().change_scene_to_file("res://scenes/menu.tscn") == OK)
 	pass
