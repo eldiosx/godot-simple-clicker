@@ -8,6 +8,6 @@
 
 - <h2>Members and credits: </h2>
 
-Daniel Delgado Jiménez - Team Leader<br>\
+Daniel Delgado Jiménez - Team Leader<br>
 
 A simple clicker made on GDScript
