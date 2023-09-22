@@ -1,31 +1,29 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://jfp23jcm7peu"]
 
-[ext_resource path="res://scripts/coins.gd" type="Script" id=1]
-[ext_resource path="res://fonts/hack.tres" type="FontFile" id=2]
+[ext_resource type="Script" path="res://scripts/coins.gd" id="1"]
+[ext_resource type="FontFile" path="res://fonts/hack.tres" id="2"]
 
 [node name="game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_editor_description_": ""
-}
+script = ExtResource("1")
 
 [node name="Coins" type="Label" parent="."]
+layout_mode = 0
 offset_right = 469.0
 offset_bottom = 14.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Coins: 0"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Text" type="Label" parent="."]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.127
 anchor_right = 0.505
@@ -34,55 +32,51 @@ offset_left = -140.0
 offset_top = -0.200012
 offset_right = 144.88
 offset_bottom = 0.200012
-align = 1
-valign = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="WorkerUnits" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -479.0
 offset_bottom = 14.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Workers: 0"
-align = 2
 
 [node name="ComputerUnits" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -469.0
 offset_top = 29.0
 offset_bottom = 43.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Computers: 0"
-align = 2
 
 [node name="RamUnits" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -469.0
 offset_top = 58.0
 offset_bottom = 88.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Ram DDR: 1"
-align = 2
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Cost" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -94,35 +88,31 @@ offset_bottom = 58.0
 theme_override_constants/separation = 10
 
 [node name="WorkerCost" type="Label" parent="Cost"]
-offset_right = 135.0
-offset_bottom = 30.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Cost: 50"
 
 [node name="ComputerCost" type="Label" parent="Cost"]
-offset_top = 40.0
-offset_right = 135.0
-offset_bottom = 70.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Cost: 100"
 
 [node name="RamCost" type="Label" parent="Cost"]
-offset_top = 80.0
-offset_right = 135.0
-offset_bottom = 110.0
-theme_override_colors/font_shadow_color = Color( 0, 0, 0, 0.752941 )
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.752941)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Cost: 500"
 
 [node name="Server" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -133,49 +123,38 @@ offset_right = 111.0
 offset_bottom = 98.0
 
 [node name="Work" type="Button" parent="Server"]
-offset_right = 222.0
-offset_bottom = 36.0
-theme_override_fonts/font = ExtResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
 text = "Work (+1)"
 
 [node name="Worker" type="Button" parent="Server"]
-offset_top = 40.0
-offset_right = 222.0
-offset_bottom = 76.0
-theme_override_fonts/font = ExtResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
 text = "Buy a worker"
 
 [node name="Computer" type="Button" parent="Server"]
-offset_top = 80.0
-offset_right = 222.0
-offset_bottom = 116.0
-theme_override_fonts/font = ExtResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
 text = "Buy a Computer"
 
 [node name="Ram" type="Button" parent="Server"]
-offset_top = 120.0
-offset_right = 222.0
-offset_bottom = 156.0
-theme_override_fonts/font = ExtResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
 text = "Upgrade Ram"
 
 [node name="HACK" type="Button" parent="Server"]
-offset_top = 160.0
-offset_right = 222.0
-offset_bottom = 196.0
-theme_override_fonts/font = ExtResource( 2 )
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2")
 text = "HACK"
 
 [node name="Menu" type="Button" parent="."]
+layout_mode = 0
 anchor_top = 0.956481
 anchor_right = 0.0723958
 anchor_bottom = 1.0
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource( 2 )
+theme_override_fonts/font = ExtResource("2")
 text = "Menu"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [connection signal="pressed" from="Server/Work" to="." method="_on_Work_pressed"]
 [connection signal="pressed" from="Server/Worker" to="." method="_on_Worker_pressed"]

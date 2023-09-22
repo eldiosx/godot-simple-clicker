@@ -1,2 +1,6 @@
 res://default_env.tres
 res://scenes/menu.tscn
+res://scripts/settings.gd
+res://scenes/game.tscn
+res://scripts/coins.gd
+res://scenes/settings.tscn
